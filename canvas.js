@@ -32,8 +32,24 @@ window.addEventListener('load', ()=>{
     canvas.addEventListener("mousedown", startPosition);
     canvas.addEventListener("mouseup", finishedPosition);
     canvas.addEventListener("mousemove", draw);
-    canvas.addEventListener("touchstart", startPosition);
+    /*canvas.addEventListener("touchstart", startPosition);
     canvas.addEventListener("touchend", finishedPosition);
-    canvas.addEventListener("touchmove", draw);
+    canvas.addEventListener("touchmove", draw);*/
+
+    document.body.addEventListener("touchstart", function (e) {
+        if (e.target == canvas) {
+            e.preventDefault();
+        }
+    }, false);
+    document.body.addEventListener("touchend", function (e) {
+        if (e.target == canvas) {
+            e.preventDefault();
+        }
+    }, false);
+    document.body.addEventListener("touchmove", function (e) {
+        if (e.target == canvas) {
+            e.preventDefault();
+        }
+    }, false);
 });
 
