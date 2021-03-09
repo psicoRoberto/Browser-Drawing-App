@@ -7,6 +7,13 @@ window.addEventListener('load', ()=>{
     canvas.width = window.innerWidth;
 
     //Variables
+    document.body.addEventListener('touchmove', function(e) {
+        mouse.x = e.pageX;
+        mouse.y = e.pageY;
+        handlerPos.x = e.pageX;
+        handlerPos.y = e.pageY;
+    }, false);
+    
     let painting = false;
 
     function startPosition(e){
@@ -22,10 +29,6 @@ window.addEventListener('load', ()=>{
 
     function draw(e){
         if(!painting) return;
-        if(e.target == canvas){
-            e.preventDefault();
-        }
-        
         context.lineWidth = 10;
         context.lineCap = "round";
 
