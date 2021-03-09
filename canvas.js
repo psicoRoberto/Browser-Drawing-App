@@ -11,7 +11,9 @@ window.addEventListener('load', ()=>{
 
     function startPosition(e){
         painting = true;
-        draw(e);
+        draw(e)
+        
+        ;
     }
     function finishedPosition(){
         painting = false;
@@ -20,6 +22,10 @@ window.addEventListener('load', ()=>{
 
     function draw(e){
         if(!painting) return;
+        if(e.target == canvas){
+            e.preventDefault();
+        }
+        
         context.lineWidth = 10;
         context.lineCap = "round";
 
@@ -32,11 +38,12 @@ window.addEventListener('load', ()=>{
     canvas.addEventListener("mousedown", startPosition);
     canvas.addEventListener("mouseup", finishedPosition);
     canvas.addEventListener("mousemove", draw);
-    /*canvas.addEventListener("touchstart", startPosition);
+    
+    canvas.addEventListener("touchstart", startPosition);
     canvas.addEventListener("touchend", finishedPosition);
-    canvas.addEventListener("touchmove", draw);*/
+    canvas.addEventListener("touchmove", draw);
 
-    document.body.addEventListener("touchstart", function (e) {
+    /*document.body.addEventListener("touchstart", function (e) {
         if (e.target == canvas) {
             e.preventDefault();
         }
@@ -50,6 +57,6 @@ window.addEventListener('load', ()=>{
         if (e.target == canvas) {
             e.preventDefault();
         }
-    }, false);
+    }, false); */
 });
 
